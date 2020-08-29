@@ -22,6 +22,7 @@ class App extends Component {
                       item.redirect ?
                         <Redirect key={index} exact from="/" to={item.path} /> :
                         <Route key={item.path} path={item.path} component={item.component}/>
+                        // exact 多级路由需关闭
                     )
                   })
                 }
