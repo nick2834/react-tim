@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route, Redirect } from 'react-router-dom';
 import '../styles/App.less';
 import Navbar from '../components/Navbar';
 import { Layout } from 'antd';
@@ -17,8 +17,12 @@ class App extends Component {
                 className="site-layout-background"
               >
                 {
-                  Routers.map(item => {
-                    return <Route key={item.path} path={item.path} exact component={item.component}></Route>
+                  Routers.map((item, index) => {
+                    return (
+                      item.redirect ?
+                        <Redirect key={index} exact from="/" to={item.path} /> :
+                        <Route key={item.path} path={item.path} component={item.component}/>
+                    )
                   })
                 }
               </Content>

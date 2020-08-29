@@ -21,14 +21,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
  * 这样做之后显得部分代码冗余，后续找到更好的方式再做替换
  */
 var Routers = [{
-  path: '/',
+  path: "/last",
+  redirect: true
+}, {
+  path: '/last',
   component: _Last["default"],
   auth: true,
   meta: {
     title: "信息",
     icon: require('../assets/images/last_hover.png'),
     activeIcon: require('../assets/images/last_selected.png')
-  }
+  },
+  childred: [{
+    path: "/last/message",
+    meta: {
+      title: "聊天"
+    }
+  }]
 }, {
   path: '/contacts',
   component: _Contacts["default"],
