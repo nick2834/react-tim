@@ -10,7 +10,7 @@ class RouterMap extends React.Component {
     return(
         <div className="mainRouter-wraper">
           <Switch>
-            <Route  path='/last/message' component={Message}/>
+            <Route  path='/last/message/:id' component={Message}/>
           </Switch>
         </div>
     )

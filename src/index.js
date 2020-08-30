@@ -4,6 +4,9 @@ import App from './views/App';
 import { Provider } from "react-redux"
 import store from "./redux";
 import { BrowserRouter } from "react-router-dom";
+import Http from './utils/http';
+import "./mock"
+React.Component.prototype.$http = Http;
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
