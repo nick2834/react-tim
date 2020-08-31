@@ -12,12 +12,12 @@ const avatars = [
 ];
 // 生成数据列表
 var chatList = []
-for (let i = 0; i < Math.floor(Math.random() * 20 + 1); i++) {
+for (let i = 0; i < Math.floor(Math.random() * 50 + 1); i++) {
     // let csentence = Mock.mock('@csentence()')
     chatList.push(Mock.mock({
         'id': '@id',
         "nickname": "@name",
-        'lastMsg': `@cparagraph(10)`, //标题
+        'lastMsg': `@csentence()`, //标题
         // 'avatar': `@image(100x100, @color, #FFF, ${csentence.substr(0, 1)})`,
         "avatar": avatars[i % 8]
     }))

@@ -1,0 +1,28 @@
+.todo_container{
+    line-height: 40px;
+    height: 40px;
+    border-bottom: 1px solid #eaeaea;
+    padding: 0 15px;
+    cursor: pointer;
+    position: relative;
+    &:hover{
+        background: rgb(244, 244, 244);
+        .close{
+            display: block;
+        }
+    }
+    .info{
+        margin-left: 5px;
+    }
+    .close{
+        position: absolute;
+        right: 15px;
+        display: none;
+        font-size: 14px;
+        top: 13px;
+        color: #eaeaea;
+        &:hover{
+            color: #9a9a9a;
+        }
+    }
+}

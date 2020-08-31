@@ -1,0 +1,16 @@
+.chat-list {
+  height: calc(100vh - 67px);
+  overflow-y: scroll;
+  .ant-list-item{
+      padding: 12px 15px;
+      &:hover{
+          background:rgb(242, 242, 242)
+      }
+  }
+  .ant-list-item-meta-description {
+    max-width: 145px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

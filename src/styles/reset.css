@@ -162,3 +162,19 @@ img {
   -webkit-user-drag: none;
 }
 input[type="text"]:focus{outline: 1px solid rgb(31, 112, 255);}
+
+::-webkit-scrollbar {
+  height: 10px !important;
+  width: 9px !important;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  border-style: dashed;
+  background-color: rgba(153, 153, 153, 0.4);
+  border-color: transparent;
+  border-width: 1.5px;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(153, 153, 153, 0.8);
+}
