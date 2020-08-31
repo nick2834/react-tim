@@ -5,11 +5,13 @@ import { connect } from "react-redux";
 import { initUser, updateUser } from "../../redux/actions";
 import Routers from '../../routes';
 import "./index.less";
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
+import SubMenu from './subMenu'
 const { Sider } = Layout;
 class Navbar extends React.Component {
     state = {
         activeId: 0,
+        subActiveId: null,
         list: [
             {
                 info: "在线",
@@ -37,8 +39,13 @@ class Navbar extends React.Component {
         })
     }
     selectMenu = (index) => {
-        this.setState({ activeId: Number(index) }, () => {
+        this.setState({ activeId: Number(index), subActiveId: null }, () => {
             Cookies.set('activeId', Number(index))
+        })
+    }
+    selectSubMenu = (index) => {
+        this.setState({
+            subActiveId: Number(index)
         })
     }
     showStatus = () => {
@@ -53,10 +60,10 @@ class Navbar extends React.Component {
     render() {
         let menuList = Routers.filter(item => item.auth);
         const path = this.props.location.pathname;
-        const { activeId, list, isShow } = this.state;
+        const { activeId, list, isShow, subActiveId } = this.state;
         const { userInfo } = this.props;
         return (
-            <Sider className="left-nav" defaultCollapsed="true" collapsedWidth="68">
+            <Sider className="left-nav" defaultCollapsed="true" collapsedWidth="55">
                 <div className="logo">
                     <img className="avatar" src={require('../../assets/images/avatar.jpg')} alt="" />
                     <img className="status_icon" src={require(`../../assets/images/${userInfo.status}.png`)} alt="" onClick={() => { this.showStatus() }} />
@@ -84,6 +91,18 @@ class Navbar extends React.Component {
                                         </Link>
                                     </Menu.Item>
                                 )
+                            })
+                        }
+                    </Menu>
+                </div>
+
+                <div className="menus sub_menu">
+                    <Menu theme="light" mode="inline">
+                        {
+                            SubMenu.map((item, index) => {
+                                return <Menu.Item key={index} title={item.title} onClick={() => this.selectSubMenu(index)}>
+                                    <img className="menu_icon" src={subActiveId === index ? item.activeIcon : item.icon} alt="" />
+                                </Menu.Item>
                             })
                         }
                     </Menu>
