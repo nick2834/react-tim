@@ -65,7 +65,7 @@
         line-height: 54px;
         padding: 0 !important;
         text-align: center;
-
+        
         i {
           color: #989898;
           font-size: 22px;
@@ -76,7 +76,15 @@
           height: 28px;
         }
       }
-
+      .ant-menu-submenu-title {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .anticon {
+          font-size: 20px;
+        }
+      }
       .ant-menu-item-selected {
         background: transparent;
 
@@ -90,5 +98,29 @@
     position: absolute;
     bottom: 25px;
     width: 100%;
+  }
+}
+.ant-menu-submenu{
+  .divider{
+    margin: 5px 0;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 5px;
+  }
+  .ant-menu-item{
+    margin-bottom: 0 !important;
+    height: 30px;
+    line-height: 30px;
+  }
+  .subnav {
+    display: flex;
+    align-items: center;
+    .menu_icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+    span{
+      font-size: 12px;
+    }
   }
 }

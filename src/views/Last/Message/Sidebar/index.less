@@ -1,0 +1,46 @@
+.sidebar {
+  position: relative;
+  box-sizing: border-box;
+  .close_bar {
+    position: absolute;
+    width: 15px;
+    height: 80px;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ffffff;
+    cursor: pointer;
+    text-align: center;
+    line-height: 80px;
+    border-left: 1px solid #eaeaea;
+    // box-shadow: -3px 0 10px -4px #000;
+    &.hide_bar {
+      display: none;
+    }
+  }
+  &:hover {
+    .hide_bar {
+      display: block;
+    }
+  }
+  .notice {
+    padding: 0 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eaeaea;
+    .head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0;
+    }
+    .content {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      cursor: pointer;
+      height: 86px;
+    }
+  }
+}

@@ -4,6 +4,9 @@
     border-bottom: 1px solid #eaeaea;
     padding: 25px 15px 10px;
     line-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     .title {
       font-weight: 600;
       font-size: 16px;
@@ -12,8 +15,16 @@
         text-decoration: underline;
       }
     }
+    .icon_group{
+      .anticon{
+        margin-left: 15px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+    }
   }
   &_body {
+    height: calc(100vh - 67px) !important;
   }
   &_foot {
   }

@@ -6,12 +6,12 @@ import { initUser, updateUser } from "../../redux/actions";
 import Routers from '../../routes';
 import "./index.less";
 import Cookies from 'js-cookie';
-import SubMenu from './subMenu'
+import SubMenus from './subMenu';
 const { Sider } = Layout;
+const { SubMenu } = Menu;
 class Navbar extends React.Component {
     state = {
         activeId: 0,
-        subActiveId: null,
         list: [
             {
                 info: "在线",
@@ -39,13 +39,8 @@ class Navbar extends React.Component {
         })
     }
     selectMenu = (index) => {
-        this.setState({ activeId: Number(index), subActiveId: null }, () => {
+        this.setState({ activeId: Number(index)}, () => {
             Cookies.set('activeId', Number(index))
-        })
-    }
-    selectSubMenu = (index) => {
-        this.setState({
-            subActiveId: Number(index)
         })
     }
     showStatus = () => {
@@ -60,7 +55,7 @@ class Navbar extends React.Component {
     render() {
         let menuList = Routers.filter(item => item.auth);
         const path = this.props.location.pathname;
-        const { activeId, list, isShow, subActiveId } = this.state;
+        const { activeId, list, isShow } = this.state;
         const { userInfo } = this.props;
         return (
             <Sider className="left-nav" defaultCollapsed="true" collapsedWidth="55">
@@ -99,10 +94,25 @@ class Navbar extends React.Component {
                 <div className="menus sub_menu">
                     <Menu theme="light" mode="inline">
                         {
-                            SubMenu.map((item, index) => {
-                                return <Menu.Item key={index} title={item.title} onClick={() => this.selectSubMenu(index)}>
-                                    <img className="menu_icon" src={subActiveId === index ? item.activeIcon : item.icon} alt="" />
-                                </Menu.Item>
+                            SubMenus.map((item, index) => {
+                                return (
+                                    <SubMenu key={`sub${index}`} icon={item.icon}>
+                                        {
+                                            item.children.map((item2, index2) => {
+                                                return (
+                                                    <Menu.Item key={`mui${index2}`} className={index2 === 0 || index2 === 6 ? 'divider':''}>
+                                                            <div className="subnav">
+                                                                {
+                                                                    item2.icon ? <img className="menu_icon" src={item2.icon} alt="" /> : ""
+                                                                }
+                                                                <span>{item2.title}</span>
+                                                            </div>
+                                                        </Menu.Item>
+                                                )
+                                            })
+                                        }
+                                    </SubMenu>
+                                )
                             })
                         }
                     </Menu>
