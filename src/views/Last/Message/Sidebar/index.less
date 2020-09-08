@@ -24,14 +24,13 @@
     }
   }
   .notice {
-    padding: 0 10px;
     padding-bottom: 5px;
     border-bottom: 1px solid #eaeaea;
     .head {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 5px 0;
+      padding: 5px 10px;
     }
     .content {
       overflow: hidden;
@@ -41,6 +40,10 @@
       -webkit-box-orient: vertical;
       cursor: pointer;
       height: 86px;
+      padding: 0 10px;
+      &:hover{
+        background: #eaeaea;
+      }
     }
   }
 }

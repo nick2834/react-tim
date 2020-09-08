@@ -4,34 +4,34 @@ const SubMenus = [
     {
         title:"更多",
         icon:<AppstoreOutlined />,
-        activeIcon:require('../../assets/images/more_selected.png'),
+        activeIcon:require('@/assets/images/more_selected.png'),
         children:[
             {
                 title:"空间",
-                icon:require('../../assets/images/qzone.png')
+                icon:require('@/assets/images/qzone.png')
             },
             {
                 title:"日程",
-                icon:require('../../assets/images/calender.png')
+                icon:require('@/assets/images/calender.png')
             },
             {
                 title:"待办",
-                icon:require('../../assets/images/todo.png')
+                icon:require('@/assets/images/todo.png')
             },
             {
                 title:"收藏",
-                icon:require('../../assets/images/favorite.png')
+                icon:require('@/assets/images/favorite.png')
             },
             {
                 title:"邮箱",
-                icon:require('../../assets/images/mail.png')
+                icon:require('@/assets/images/mail.png')
             }
         ]
     },
     {
         title:"菜单",
         icon:<MenuOutlined />,
-        activeIcon:require('../../assets/images/main_selected.png'),
+        activeIcon:require('@/assets/images/main_selected.png'),
         children:[
             {
                 title:"窗口置顶",

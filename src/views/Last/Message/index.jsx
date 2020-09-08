@@ -3,7 +3,6 @@ import './index.less';
 import MessageHead from './head';
 import Sidebar from './Sidebar';
 import { Layout } from 'antd';
-
 const { Content } = Layout;
 class Message extends React.Component {
     state = {
@@ -16,11 +15,11 @@ class Message extends React.Component {
         const { title } = this.state;
         return (
             <div className="message">
-                <MessageHead title={title} />
+                <MessageHead title={title}/>
                 <Layout className="message_body">
                     <Layout>
                         <Content>
-
+                        <button onClick={this.showWindow}>打开窗口</button>
                         </Content>
                     </Layout>
                     <Sidebar></Sidebar>

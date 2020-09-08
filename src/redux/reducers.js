@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 //初始用户数据
-import { userInfo } from "./state";
+import { userInfo, chatData } from "./state";
 
 function user(state = userInfo, action) {
   switch (action.type) {
@@ -12,6 +12,16 @@ function user(state = userInfo, action) {
       return userInfo;
   }
 }
+function chat(state = chatData, action) {
+  switch (action.type) {
+    case "UPDATE_CHAT":
+      return { ...state, ...action.data };
+    default:
+      return chatData;
+  }
+}
+
 export default combineReducers({
   user,
+  chat,
 });

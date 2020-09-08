@@ -5,7 +5,7 @@ import { RightOutlined, LeftOutlined } from '@ant-design/icons';
 const { Sider } = Layout;
 class Sidebar extends React.Component {
     state = {
-        isCollapsed: true
+        isCollapsed: false
     }
     showSidebar = () => {
         this.setState({ isCollapsed: !this.state.isCollapsed })
@@ -16,9 +16,7 @@ class Sidebar extends React.Component {
             <Sider width={240} theme="light" className="sidebar" collapsedWidth="0" collapsed={isCollapsed} onClick={(e) => e.stopPropagation()}>
                 <div className={['close_bar', isCollapsed ? 'show_bar' : 'hide_bar'].join(' ')} onClick={() => this.showSidebar()}>
                     {
-                        isCollapsed ?
-                            <RightOutlined /> :
-                            <LeftOutlined />
+                        isCollapsed ? <RightOutlined /> : <LeftOutlined />
                     }
                 </div>
                 <div className="notice">

@@ -3,10 +3,10 @@
  * components 有许多指向是一样的，是页面中存在共用部分
  * 这样做之后显得部分代码冗余，后续找到更好的方式再做替换
  */
-import Login from '../views/Login';
-import Last from '../views/Last';
-import Contacts from '../views/Contacts';
-import Files from '../views/Files';
+import Login from '@/views/Login';
+import Last from '@/views/Last';
+import Contacts from '@/views/Contacts';
+import Files from '@/views/Files';
 
 const Routers = [
     {

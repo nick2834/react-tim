@@ -2,8 +2,8 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import { connect } from "react-redux";
-import { initUser, updateUser } from "../../redux/actions";
-import Routers from '../../routes';
+import { initUser, updateUser,updateChat } from "@/redux/actions";
+import Routers from '@/routes';
 import "./index.less";
 import Cookies from 'js-cookie';
 import SubMenus from './subMenu';
@@ -41,6 +41,7 @@ class Navbar extends React.Component {
     selectMenu = (index) => {
         this.setState({ activeId: Number(index)}, () => {
             Cookies.set('activeId', Number(index))
+            this.props.updateChat({chatId:null});
         })
     }
     showStatus = () => {
@@ -60,14 +61,14 @@ class Navbar extends React.Component {
         return (
             <Sider className="left-nav" defaultCollapsed="true" collapsedWidth="55">
                 <div className="logo">
-                    <img className="avatar" src={require('../../assets/images/avatar.jpg')} alt="" />
-                    <img className="status_icon" src={require(`../../assets/images/${userInfo.status}.png`)} alt="" onClick={() => { this.showStatus() }} />
+                    <img className="avatar" src={require('@/assets/images/avatar.jpg')} alt="" />
+                    <img className="status_icon" src={require(`@/assets/images/${userInfo.status}.png`)} alt="" onClick={() => { this.showStatus() }} />
                     <ul className="status_list" style={{ display: isShow ? 'block' : 'none' }}>
                         {
                             list.map(item => {
                                 return (
                                     <li className="item" key={item.status} onClick={() => this.changeStatus(item)}>
-                                        <img className="icon" src={require(`../../assets/images/${item.status}.png`)} alt="" />
+                                        <img className="icon" src={require(`@/assets/images/${item.status}.png`)} alt="" />
                                         <span className="info">{item.info}</span>
                                     </li>
                                 )
@@ -125,5 +126,6 @@ class Navbar extends React.Component {
 export default connect((state) => ({ userInfo: state.user }), {
     initUser,
     updateUser,
+    updateChat
 })(withRouter(Navbar));
 // export default withRouter(Navbar)
